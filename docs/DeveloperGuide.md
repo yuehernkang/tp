@@ -285,6 +285,51 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+**Use case: Delete a listing**
+
+**MSS**
+
+1.  User requests to view all listings
+
+**Use Case: Adding a tag to a person**
+
+**MSS**
+
+1. User requests to list persons
+2. Condonery shows a list of persons
+3. User requests to add a tag to a specific person in the list
+4. Condonery shows a list of tags available
+5. User selects an appropriate tag for the person
+6. Condonery adds the tag to the person
+7. Condonery shows the updated person
+
+    Use case ends.
+
+**Use Case: Label a listing**
+
+**MSS**
+
+1. User request to view all listings
+2. User selects a particular listing to be labelled
+3. Condonery shows a list of labels available
+4. User selects appropriate label for this particular listing
+5. Condonery adds the label to the listing
+6. Condonery shows the updated listing
+
+    Use case ends.
+
+**Use Case: Add a listing**
+
+**MSS**
+
+1. User requests to add a listing
+2. Condonery requests user to add details about the property to be listed
+3. User enters details about the property to be listed
+4. Condonery displays the details that the user has entered and requests for confirmation
+5. Condonery adds the listing to the property listing database
+
+    Use case ends.
+
 **Use case: Delete a person**
 
 **MSS**
