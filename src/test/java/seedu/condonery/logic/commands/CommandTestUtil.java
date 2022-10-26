@@ -6,6 +6,7 @@ import static seedu.condonery.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PROPERTY_STATUS;
+import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PROPERTY_TYPE;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.condonery.testutil.Assert.assertThrows;
 
@@ -53,18 +54,22 @@ public class CommandTestUtil {
     public static final String PROPERTY_VALID_PRICE_SCOTTS = "100000";
     public static final String PROPERTY_VALID_PRICE_WHISTLER = "200000";
     public static final String PROPERTY_VALID_STATUS = "AVAILABLE";
+    public static final String PROPERTY_VALID_TYPE_SCOTTS = "HDB";
+    public static final String PROPERTY_VALID_TYPE_WHISTLER = "CONDO";
 
     public static final String PROPERTY_NAME_DESC_SCOTTS = " " + PREFIX_NAME + PROPERTY_VALID_NAME_SCOTTS;
     public static final String PROPERTY_ADDRESS_DESC_SCOTTS = " " + PREFIX_ADDRESS + PROPERTY_VALID_ADDRESS_SCOTTS;
     public static final String PROPERTY_TAGS_DESC_SCOTTS = " " + PREFIX_TAG + PROPERTY_VALID_TAG_SCOTTS;
     public static final String PROPERTY_PRICE_DESC_SCOTTS = " " + PREFIX_PRICE + PROPERTY_VALID_PRICE_SCOTTS;
     public static final String PROPERTY_STATUS_DESC_SCOTTS = " " + PREFIX_PROPERTY_STATUS + PROPERTY_VALID_STATUS;
+    public static final String PROPERTY_TYPE_DESC_SCOTTS = " " + PREFIX_PROPERTY_TYPE + PROPERTY_VALID_TYPE_SCOTTS;
 
     public static final String PROPERTY_NAME_DESC_WHISTLER = " " + PREFIX_NAME + PROPERTY_VALID_NAME_WHISTLER;
     public static final String PROPERTY_ADDRESS_DESC_WHISTLER = " " + PREFIX_ADDRESS + PROPERTY_VALID_ADDRESS_WHISTLER;
     public static final String PROPERTY_TAGS_DESC_WHISTLER = " " + PREFIX_TAG + PROPERTY_VALID_TAG;
     public static final String PROPERTY_PRICE_DESC_WHISTLER = " " + PREFIX_PRICE + PROPERTY_VALID_PRICE_WHISTLER;
     public static final String PROPERTY_STATUS_DESC_WHISTLER = " " + PREFIX_PROPERTY_STATUS + PROPERTY_VALID_STATUS;
+    public static final String PROPERTY_TYPE_DESC_WHISTLER = " " + PREFIX_PROPERTY_TYPE + PROPERTY_VALID_TYPE_WHISTLER;
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + CLIENT_VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + CLIENT_VALID_NAME_BOB;

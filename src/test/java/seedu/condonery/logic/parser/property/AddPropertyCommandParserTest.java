@@ -20,6 +20,7 @@ import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_PRICE_DESC
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_PRICE_DESC_WHISTLER;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_TAGS_DESC_SCOTTS;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_TAGS_DESC_WHISTLER;
+import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_TYPE_DESC_SCOTTS;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TAG;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TAG_SCOTTS;
 import static seedu.condonery.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
@@ -48,24 +49,29 @@ public class AddPropertyCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + PROPERTY_NAME_DESC_WHISTLER
-            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER,
+            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER
+                        + PROPERTY_TYPE_DESC_SCOTTS,
+
                 new AddPropertyCommand(expectedProperty));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, PROPERTY_NAME_DESC_SCOTTS + PROPERTY_NAME_DESC_WHISTLER
-            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER,
+            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER
+                        + PROPERTY_TYPE_DESC_SCOTTS,
                 new AddPropertyCommand(expectedProperty));
 
         // multiple addresses - last address accepted
         assertParseSuccess(parser, PROPERTY_NAME_DESC_WHISTLER + PROPERTY_ADDRESS_DESC_SCOTTS
-            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER,
+            + PROPERTY_ADDRESS_DESC_WHISTLER + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_WHISTLER
+                        + PROPERTY_TYPE_DESC_SCOTTS,
                 new AddPropertyCommand(expectedProperty));
 
         // multiple tags - all accepted
         Property expectedPersonMultipleTags =
                 new PropertyBuilder(SCOTTS).withTags(PROPERTY_VALID_TAG_SCOTTS, PROPERTY_VALID_TAG).build();
         assertParseSuccess(parser, PROPERTY_NAME_DESC_SCOTTS + PROPERTY_ADDRESS_DESC_SCOTTS
-                + PROPERTY_TAGS_DESC_SCOTTS + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_SCOTTS,
+                + PROPERTY_TAGS_DESC_SCOTTS + PROPERTY_TAGS_DESC_WHISTLER + PROPERTY_PRICE_DESC_SCOTTS
+                        + PROPERTY_TYPE_DESC_SCOTTS,
                 new AddPropertyCommand(expectedPersonMultipleTags));
     }
 
@@ -74,7 +80,7 @@ public class AddPropertyCommandParserTest {
         // zero tags
         Property expectedProperty = new PropertyBuilder(SCOTTS).withTags().build();
         assertParseSuccess(parser, PROPERTY_NAME_DESC_SCOTTS + PROPERTY_ADDRESS_DESC_SCOTTS
-                + PROPERTY_PRICE_DESC_SCOTTS,
+                + PROPERTY_PRICE_DESC_SCOTTS + PROPERTY_TYPE_DESC_SCOTTS,
             new AddPropertyCommand(expectedProperty));
     }
 
@@ -103,23 +109,25 @@ public class AddPropertyCommandParserTest {
     public void parse_invalidValue_failure() {
         // invalid name
         assertParseFailure(parser, INVALID_NAME_DESC + ADDRESS_DESC_BOB + PRICE_DESC_BOB
-            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
+            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + PROPERTY_TYPE_DESC_SCOTTS, Name.MESSAGE_CONSTRAINTS);
 
         // invalid address
         assertParseFailure(parser, NAME_DESC_BOB + INVALID_ADDRESS_DESC + PRICE_DESC_BOB
-            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Address.MESSAGE_CONSTRAINTS);
+            + TAG_DESC_HUSBAND + TAG_DESC_FRIEND + PROPERTY_TYPE_DESC_SCOTTS, Address.MESSAGE_CONSTRAINTS);
 
         // invalid tag
         assertParseFailure(parser, NAME_DESC_BOB + ADDRESS_DESC_BOB + PRICE_DESC_BOB
-            + INVALID_TAG_DESC + CLIENT_VALID_TAG_FRIEND, Tag.MESSAGE_CONSTRAINTS);
+            + INVALID_TAG_DESC + CLIENT_VALID_TAG_FRIEND + PROPERTY_TYPE_DESC_SCOTTS, Tag.MESSAGE_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_NAME_DESC + INVALID_ADDRESS_DESC + PRICE_DESC_BOB,
+        assertParseFailure(parser, INVALID_NAME_DESC + INVALID_ADDRESS_DESC + PRICE_DESC_BOB
+                + PROPERTY_TYPE_DESC_SCOTTS,
             Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB
-                + ADDRESS_DESC_BOB + PRICE_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                + ADDRESS_DESC_BOB + PRICE_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
+                + PROPERTY_TYPE_DESC_SCOTTS,
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddPropertyCommand.MESSAGE_USAGE));
     }
 }

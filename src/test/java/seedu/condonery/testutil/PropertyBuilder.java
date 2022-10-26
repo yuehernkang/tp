@@ -8,6 +8,7 @@ import seedu.condonery.model.fields.Name;
 import seedu.condonery.model.property.Price;
 import seedu.condonery.model.property.Property;
 import seedu.condonery.model.tag.PropertyStatusEnum;
+import seedu.condonery.model.tag.PropertyTypeEnum;
 import seedu.condonery.model.tag.Tag;
 import seedu.condonery.model.util.SampleDataUtil;
 
@@ -19,6 +20,7 @@ public class PropertyBuilder {
     public static final String DEFAULT_NAME = "Bishan";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final PropertyStatusEnum DEFAULT_PROPERTY_STATUS = PropertyStatusEnum.AVAILABLE;
+    public static final PropertyTypeEnum DEFAULT_PROPERTY_TYPE = PropertyTypeEnum.CONDO;
     public static final String DEFAULT_PRICE = "100000";
 
     private Name name;
@@ -26,6 +28,7 @@ public class PropertyBuilder {
     private Price price;
     private Set<Tag> tags;
     private PropertyStatusEnum propertyStatusEnum;
+    private PropertyTypeEnum propertyTypeEnum;
 
     /**
      * Creates a {@code PropertyBuilder} with the default details.
@@ -36,6 +39,7 @@ public class PropertyBuilder {
         price = new Price(DEFAULT_PRICE);
         tags = new HashSet<>();
         propertyStatusEnum = DEFAULT_PROPERTY_STATUS;
+        propertyTypeEnum = DEFAULT_PROPERTY_TYPE;
     }
 
     /**
@@ -47,6 +51,7 @@ public class PropertyBuilder {
         price = propertyToCopy.getPrice();
         tags = new HashSet<>(propertyToCopy.getTags());
         propertyStatusEnum = propertyToCopy.getPropertyStatusEnum();
+        propertyTypeEnum = propertyToCopy.getPropertyTypeEnum();
     }
 
     /**
@@ -80,6 +85,7 @@ public class PropertyBuilder {
         this.propertyStatusEnum = PropertyStatusEnum.valueOf(propertyStatus);
         return this;
     }
+
     /**
      * Sets the {@code Price} of the {@code Property} that we are building.
      */
@@ -88,8 +94,18 @@ public class PropertyBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code PropertyType} of the {@code Property} that we are building.
+     */
+    public PropertyBuilder withPropertyType(String propertyType) {
+        this.propertyTypeEnum = PropertyTypeEnum.valueOf(propertyType);
+        return this;
+    }
+
     public Property build() {
-        return new Property(name, address, price, tags, propertyStatusEnum);
+        return new Property(name, address, price, tags,
+                propertyStatusEnum,
+                propertyTypeEnum);
     }
 
 }

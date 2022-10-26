@@ -15,6 +15,7 @@ import seedu.condonery.model.fields.Name;
 import seedu.condonery.model.property.Price;
 import seedu.condonery.model.property.Property;
 import seedu.condonery.model.tag.PropertyStatusEnum;
+import seedu.condonery.model.tag.PropertyTypeEnum;
 import seedu.condonery.model.tag.Tag;
 
 /**
@@ -29,6 +30,7 @@ class JsonAdaptedProperty {
     private final String price;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final String propertyStatus;
+    private final String propertyType;
 
     /**
      * Constructs a {@code JsonAdaptedProperty} with the given property details.
@@ -37,7 +39,8 @@ class JsonAdaptedProperty {
     public JsonAdaptedProperty(@JsonProperty("name") String name, @JsonProperty("address") String address,
            @JsonProperty("price") String price,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-           @JsonProperty("propertyStatus") String propertyStatus) {
+           @JsonProperty("propertyStatus") String propertyStatus,
+           @JsonProperty("propertyType") String propertyType) {
         this.name = name;
         this.address = address;
         this.price = price;
@@ -45,6 +48,7 @@ class JsonAdaptedProperty {
             this.tagged.addAll(tagged);
         }
         this.propertyStatus = propertyStatus;
+        this.propertyType = propertyType;
     }
 
     /**
@@ -58,6 +62,7 @@ class JsonAdaptedProperty {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         propertyStatus = source.getPropertyStatusEnum().toString();
+        propertyType = source.getPropertyTypeEnum().toString();
     }
 
     /**
@@ -103,8 +108,15 @@ class JsonAdaptedProperty {
                     PropertyStatusEnum.class.getSimpleName()));
         }
 
+        if (propertyType == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    PropertyTypeEnum.class.getSimpleName()));
+        }
+
         final PropertyStatusEnum modelPropertyStatus = PropertyStatusEnum.valueOf(propertyStatus);
-        return new Property(modelName, modelAddress, modelPrice, modelTags, modelPropertyStatus);
+        final PropertyTypeEnum modelPropertyType = PropertyTypeEnum.valueOf(propertyType);
+        return new Property(modelName, modelAddress, modelPrice, modelTags,
+                modelPropertyStatus, modelPropertyType);
     }
 
 }

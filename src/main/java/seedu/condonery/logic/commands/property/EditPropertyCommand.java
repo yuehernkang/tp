@@ -25,6 +25,7 @@ import seedu.condonery.model.fields.Name;
 import seedu.condonery.model.property.Price;
 import seedu.condonery.model.property.Property;
 import seedu.condonery.model.tag.PropertyStatusEnum;
+import seedu.condonery.model.tag.PropertyTypeEnum;
 import seedu.condonery.model.tag.Tag;
 
 /**
@@ -102,7 +103,10 @@ public class EditPropertyCommand extends Command {
         Set<Tag> updatedTags = editPropertyDescriptor.getTags().orElse(propertyToEdit.getTags());
         PropertyStatusEnum propertyStatusEnum = editPropertyDescriptor
                 .getPropertyStatusEnum().orElse(propertyToEdit.getPropertyStatusEnum());
-        return new Property(updatedName, updatedAddress, updatedPrice, updatedTags, propertyStatusEnum);
+        PropertyTypeEnum propertyTypeEnum = editPropertyDescriptor
+                .getPropertyTypeEnum().orElse(propertyToEdit.getPropertyTypeEnum());
+        return new Property(updatedName, updatedAddress, updatedPrice, updatedTags,
+                propertyStatusEnum, propertyTypeEnum);
     }
 
     @Override
@@ -136,6 +140,7 @@ public class EditPropertyCommand extends Command {
         private Price price;
         private Set<Tag> tags;
         private PropertyStatusEnum propertyStatusEnum;
+        private PropertyTypeEnum propertyTypeEnum;
 
         public EditPropertyDescriptor() {}
 
@@ -178,8 +183,16 @@ public class EditPropertyCommand extends Command {
             this.propertyStatusEnum = propertyStatusEnum;
         }
 
+        public void setPropertyTypeEnum(PropertyTypeEnum propertyTypeEnum) {
+            this.propertyTypeEnum = propertyTypeEnum;
+        }
+
         public Optional<PropertyStatusEnum> getPropertyStatusEnum() {
             return Optional.ofNullable(propertyStatusEnum);
+        }
+
+        public Optional<PropertyTypeEnum> getPropertyTypeEnum() {
+            return Optional.ofNullable(propertyTypeEnum);
         }
 
         /**

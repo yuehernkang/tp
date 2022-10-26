@@ -4,6 +4,7 @@ import static seedu.condonery.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PROPERTY_STATUS;
+import static seedu.condonery.logic.parser.CliSyntax.PREFIX_PROPERTY_TYPE;
 import static seedu.condonery.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -37,6 +38,7 @@ public class PropertyUtil {
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
         sb.append(PREFIX_PROPERTY_STATUS + property.getPropertyStatusEnum().toString() + " ");
+        sb.append(PREFIX_PROPERTY_TYPE + property.getPropertyTypeEnum().toString() + " ");
 
         return sb.toString();
     }

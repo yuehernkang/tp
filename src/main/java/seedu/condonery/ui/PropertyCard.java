@@ -54,6 +54,8 @@ public class PropertyCard extends UiPart<Region> {
     private ImageView displayPicture;
     @FXML
     private Label propertyStatus;
+    @FXML
+    private Label propertyType;
 
     /**
      * Creates a {@code PropertyCode} with the given {@code Property} and index to display.
@@ -73,6 +75,7 @@ public class PropertyCard extends UiPart<Region> {
         propertyStatus.setBackground(new Background(
                 new BackgroundFill(propertyStatusColor(property.getPropertyStatusEnum()),
                         CornerRadii.EMPTY, Insets.EMPTY)));
+        propertyType.setText(property.getPropertyTypeEnum().toString());
         Path imagePath = property.getImagePath();
         if (imagePath != null) {
             File file = new File(property.getImagePath().toString());

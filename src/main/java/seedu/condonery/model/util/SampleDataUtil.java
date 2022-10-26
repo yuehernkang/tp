@@ -14,6 +14,7 @@ import seedu.condonery.model.fields.Name;
 import seedu.condonery.model.property.Price;
 import seedu.condonery.model.property.Property;
 import seedu.condonery.model.tag.PropertyStatusEnum;
+import seedu.condonery.model.tag.PropertyTypeEnum;
 import seedu.condonery.model.tag.Tag;
 
 /**
@@ -24,13 +25,16 @@ public class SampleDataUtil {
         return new Property[] {
             new Property(new Name("PINNACLE@DUXTON"), new Address("Cantonment Rd, #1G, S085301"),
                     new Price("1000000"),
-                    getTagSet("High-End", "Available"), PropertyStatusEnum.valueOf("AVAILABLE")),
+                    getTagSet("High-End", "Available"), PropertyStatusEnum.valueOf("AVAILABLE"),
+                    PropertyTypeEnum.valueOf("CONDO")),
             new Property(new Name("INTERLACE"), new Address("180 Depot Road, S109684"),
                     new Price("1000000"),
-                    getTagSet("High-End", "Sold"), PropertyStatusEnum.valueOf("SOLD")),
+                    getTagSet("High-End", "Sold"), PropertyStatusEnum.valueOf("SOLD"),
+                    PropertyTypeEnum.valueOf("CONDO")),
             new Property(new Name("DLEEDON"), new Address("7 Leedon Heights, D'leedon, S267953"),
                     new Price("1000000"),
-                    getTagSet("High-End", "Reserved"), PropertyStatusEnum.valueOf("PENDING"))
+                    getTagSet("High-End", "Reserved"), PropertyStatusEnum.valueOf("PENDING"),
+                    PropertyTypeEnum.valueOf("CONDO"))
         };
     }
 

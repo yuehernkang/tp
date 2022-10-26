@@ -37,5 +37,8 @@
          <RowConstraints />
       </rowConstraints>
   </GridPane>
-   <Label fx:id="propertyStatus" styleClass="cell_big_label" text="\$propertyStatus" />
+<VBox>
+  <Label fx:id="propertyStatus" alignment="TOP_RIGHT" styleClass="cell_big_label" text="\$propertyStatus" />
+  <Label fx:id="propertyType" styleClass="cell_big_label" text="\$propertyType" textAlignment="RIGHT" />
+</VBox>
 </HBox>

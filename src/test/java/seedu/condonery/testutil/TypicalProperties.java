@@ -9,6 +9,8 @@ import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_PRIC
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_STATUS;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TAG;
 import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TAG_SCOTTS;
+import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TYPE_SCOTTS;
+import static seedu.condonery.logic.commands.CommandTestUtil.PROPERTY_VALID_TYPE_WHISTLER;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,6 +62,7 @@ public class TypicalProperties {
             .withTags(PROPERTY_VALID_TAG_SCOTTS)
             .withPrice(PROPERTY_VALID_PRICE_SCOTTS)
             .withPropertyStatus(PROPERTY_VALID_STATUS)
+            .withPropertyType(PROPERTY_VALID_TYPE_SCOTTS)
             .build();
     public static final Property WHISTLER = new PropertyBuilder()
             .withName(PROPERTY_VALID_NAME_WHISTLER)
@@ -67,6 +70,7 @@ public class TypicalProperties {
             .withTags(PROPERTY_VALID_TAG)
             .withPrice(PROPERTY_VALID_PRICE_WHISTLER)
             .withPropertyStatus(PROPERTY_VALID_STATUS)
+            .withPropertyType(PROPERTY_VALID_TYPE_WHISTLER)
             .build();
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

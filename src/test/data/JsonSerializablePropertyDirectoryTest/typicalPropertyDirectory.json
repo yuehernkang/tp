@@ -8,7 +8,8 @@
       "tagged": [
         "friends"
       ],
-      "propertyStatus": "AVAILABLE"
+      "propertyStatus": "AVAILABLE",
+      "propertyType" : "CONDO"
     },
     {
       "name": "Oasis",
@@ -18,13 +19,15 @@
         "owesMoney",
         "friends"
       ],
-      "propertyStatus": "SOLD"
+      "propertyStatus": "SOLD",
+      "propertyType" : "CONDO"
     },
     {
       "name": "Carl Kurz",
       "address": "wall street",
       "tagged": [],
       "propertyStatus": "SOLD",
+      "propertyType" : "CONDO",
       "price": "1,000,000",
       "tagged": []
     },
@@ -35,7 +38,8 @@
       "tagged": [
         "friends"
       ],
-      "propertyStatus": "SOLD"
+      "propertyStatus": "SOLD",
+      "propertyType" : "CONDO"
 
     },
     {
@@ -43,6 +47,7 @@
       "address": "michegan ave",
       "tagged": [],
       "propertyStatus": "SOLD",
+      "propertyType" : "CONDO",
       "price": "1,000,000",
       "tagged": []
     },
@@ -51,6 +56,7 @@
       "address": "little tokyo",
       "tagged": [],
       "propertyStatus": "SOLD",
+      "propertyType" : "CONDO",
       "price": "1,000,000",
       "tagged": []
     },
@@ -59,6 +65,7 @@
       "address": "4th street",
       "tagged": [],
       "propertyStatus": "SOLD",
+      "propertyType" : "CONDO",
       "price": "1,000,000",
       "tagged": []
     }
