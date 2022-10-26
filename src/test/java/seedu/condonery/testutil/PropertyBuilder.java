@@ -102,6 +102,10 @@ public class PropertyBuilder {
         return this;
     }
 
+    /**
+     * Builds the property
+     * @return
+     */
     public Property build() {
         return new Property(name, address, price, tags,
                 propertyStatusEnum,
