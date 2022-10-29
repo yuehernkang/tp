@@ -177,10 +177,12 @@ Examples:
 * `list -p` followed by `delete -p 2` deletes the 2nd property in the address book.
 * `find -p Wall Street` followed by `delete -p 1` deletes the 1st property in the results of the `find -p` command.
 
-### Filtering profiles: `filter -p`
+### Filtering properties: `filter -p`
 
 Returns a filtered list of properties that fulfil the filter conditions for tags only.
+
 Format: `filter -p TAG...`
+
 Examples:
 * `filter -p high-end` returns all properties with the `high-end` tag.
 * `filter -p available` returns all properties with the `available` tag.
