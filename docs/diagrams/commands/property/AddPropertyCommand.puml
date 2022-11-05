@@ -1,0 +1,13 @@
+@startuml
+
+(*) --> User enters command
+--> Condonery passes command input to respective parsers
+--> AddPropertyCommandParser parses user input and split into respective fields
+if "" then
+    -->[true]dhl
+    ->(*)
+else
+    --> [else]throw Parse Exception with example AddPropertyCommand
+-->(*)
+
+@enduml
